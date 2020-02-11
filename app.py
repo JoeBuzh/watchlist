@@ -21,7 +21,7 @@ def hello_who(name):
 
 @app.route('/ty')
 def ty():
-    return u"欢迎来到天莹的网页！"
+    return u"欢迎来到田莹的网页！"
 
 @app.route('/img')
 def image():
