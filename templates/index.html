@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ name }}'s watchlist</title>
+    <title>{{ user.name }}'s watchlist</title>
     <link rel="icon" href="{{ url_for('static', filename='coffee.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', 
     filename='images/style.css') }}" type="text/css">
@@ -12,7 +12,7 @@
 <body>
     <h2>
         <img alt="Oldman" class="oldman" src="{{ url_for('static', filename='images/oldman.jpg') }}">
-        {{ name }}'s watchlist
+        {{ user.name }}'s watchlist
     </h2>
     <p>{{ movies|length }} Title</p> 
     <ul class="movie-list">
