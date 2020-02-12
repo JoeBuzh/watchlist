@@ -35,11 +35,10 @@ def forge():
         {'title': '我不是药神', 'year': '2019'},
         {'title': '流感', 'year': '2018'},
         {'title': '铁线虫入侵', 'year': '2018'},
-        {'title': '娜扎', 'year': '2019'},
-        {'title': '神探狄仁杰', 'year': '2018'},
+        {'title': '哪吒', 'year': '2019'},
+        {'title': '神探狄仁杰', 'year': '2016'},
         {'title': '为爱迫降', 'year': '2020'},
-        {'title': 'Silicon Vally', 'year': '2017'},
-        {'title': '战狼2', 'year': '2019'},
+        {'title': '战狼2', 'year': '2017'},
         {'title': '亲爱的，新年好', 'year': '2020'},
     ]
     user = User(name=name)
@@ -108,4 +107,18 @@ def test_url_for():
 def index():
     user = User.query.first()
     movies = Movie.query.all()
-    return render_template('index.html', user=user, movies=movies)
+    return render_template('index.html', movies=movies)
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    user = User.query.first()
+    return render_template('404.html')
+
+
+@app.context_processor
+def inject_user():
+    user = User.query.first()
+    return dict(user=user) # 类似全局变量，所有html页面均可使用user
+
+

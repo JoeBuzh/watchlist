@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scala=1.0">
+    <title>{{ user.name }}'s Watch-List</title>
+    <link rel="icon" href="{{ url_for('static', filename='coffee.ico')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css">
+    {% endblock head %}
+</head>
+<body>
+    <h2>
+        <img src="{{ url_for('static', filename='images/oldman.jpg') }}" class="oldman" alt="oldman">
+        {{ user.name }}'s Watch-List
+    </h2>
+    <nav>
+        <ul>
+            <li>
+                <span>
+                    <a href="{{ url_for('index') }}">Home</a>
+                    <a href="{{ url_for('bzh') }}">Profile</a>
+                </span>
+            </li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+    <footer>
+        <small>
+            &copy;
+            2020 <a href="https://github.com/JoeinChina">Joe Bu</a>
+        </small>
+    </footer>
+</body>
+</html>

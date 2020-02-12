@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>{{ user.name }}'s watchlist</title>
+    <link rel="icon" href="{{ url_for('static', filename='coffee.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', 
+    filename='style.css') }}" type="text/css">
+</head>
+
+<body>
+    <h2>
+        <img alt="Oldman" class="oldman" src="{{ url_for('static', filename='images/oldman.jpg') }}">
+        {{ user.name }}'s watchlist
+    </h2>
+    <p>{{ movies|length }} Items</p> 
+    <ul class="movie-list">
+        {% for movie in movies %}
+        <li>{{ movie.title }} - {{movie.year}}</li>
+        {% endfor %}
+    </ul>
+    <img alt="Walker" class="walker" src="{{ url_for('static', filename='images/giphy.gif') }}">
+    <footer>
+        <small>&copy; 2020<a href="http://github.com/JoeinChina">Joe Bu</a>
+        </small>
+    </footer>
+</body>
+
+</html>
