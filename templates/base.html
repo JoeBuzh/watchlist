@@ -10,6 +10,9 @@
     {% endblock head %}
 </head>
 <body>
+    {% for message in get_flashed_messages() %}
+        <div class="alter">{{ message }}</div>
+    {% endfor %}
     <h2>
         <img src="{{ url_for('static', filename='images/oldman.jpg') }}" class="oldman" alt="oldman">
         {{ user.name }}'s Watch-List
