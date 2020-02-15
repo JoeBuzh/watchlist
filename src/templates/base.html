@@ -22,7 +22,12 @@
             <li>
                 <span>
                     <a href="{{ url_for('index') }}">Home</a>
-                    <a href="{{ url_for('bzh') }}">Profile</a>
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('settings') }}">Settings</a>
+                        <a href="{{ url_for('logout') }}">Logout</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}">Login</a>
+                    {% endif %}
                 </span>
             </li>
         </ul>
