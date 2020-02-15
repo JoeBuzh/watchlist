@@ -89,7 +89,7 @@ def delete(movie_id):
     db.session.delete(movie)
     db.session.commit()
     flash('Delete Item!')
-    redirect(url_for('index'))
+    return redirect(url_for('index'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
