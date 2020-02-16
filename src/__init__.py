@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + \
     os.path.join(os.path.dirname(app.root_path), os.getenv('DATABASE_FILE', 'data.db'))
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-app.config['DEBUG'] = True
+# app.config['DEBUG'] = True
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
@@ -35,4 +35,4 @@ def inject_user():
     user = User.query.first()
     return dict(user=user)  # 类似全局变量，所有html页面均可使用user
 
-from src import views, models, errors
+from src import views, models, errors, commands
